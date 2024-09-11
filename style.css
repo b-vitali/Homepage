@@ -116,6 +116,26 @@ table td strong {
     margin-bottom: 5px;
 }
 
+ /* Style for text size slider */
+ .text-size-slider {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #2d2d2d;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.text-size-slider label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.text-size-slider input[type="range"] {
+    width: 100px;
+}
+
 /* Landscape mode: Menu at the top */
 @media (orientation: landscape) {
     .container {
@@ -144,7 +164,7 @@ table td strong {
     }
 
     .menu {
-        width: 60px;
+        width: 20px;
         height: 100vh;
         transition: all 0.3s ease;
         position: relative;
@@ -196,23 +216,25 @@ table td strong {
         width: calc(100% - 200px);
     }
 
-    /* Collapsed indicator: vertical "Show Menu" text */
-    .menu::before {
-        content: "Show Menu";
-        color: white;
-        display: block;
-        text-align: center;
-        font-size: 18px;
-        height: 100%; /* Full height of the menu */
-        writing-mode: vertical-rl; /* Rotate the text vertically */
-        transform: rotate(180deg); /* Ensure proper reading direction */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+/* Style for collapsed menu indicator */
+.menu::before {
+    content: "Show Menu";
+    color: white;
+    font-size: 18px;
+    height: 100%; /* Full height of the menu */
+    width: 100%; /* Full width of the menu */
+    writing-mode: vertical-rl; /* Rotate the text vertically */
+    transform: rotate(180deg); /* Ensure proper reading direction */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Center the text horizontally */
+}
 
     /* When the menu is expanded, completely hide the "Show Menu" indicator */
     .menu.expanded::before {
         display: none; /* Remove the "Show Menu" indicator */
     }
 }
+
+   

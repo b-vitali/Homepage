@@ -23,17 +23,32 @@ function loadSection(sectionId) {
     })
     .catch(error => console.error('Error loading section:', error));
 }
+
 document.addEventListener("DOMContentLoaded", function() {
   const menu = document.querySelector('.menu');
   const content = document.querySelector('.content');
+  const slider = document.querySelector('#textSize');
 
-  // Toggle menu in portrait mode
-  menu.addEventListener('click', function() {
-    // Toggle expanded class for menu and content
-    menu.classList.toggle('expanded');
-    content.classList.toggle('expanded');
-  });
+  // Ensure all elements are present
+  if (menu && content) {
+      // Add event listener for toggling the menu in portrait mode
+      menu.addEventListener('click', function() {
+          menu.classList.toggle('expanded');
+          content.classList.toggle('expanded');
+      });
 
-  // Load the initial section (Bio by default)
-  loadSection('bio');
+      // Load the initial section (Bio by default)
+      loadSection('bio');
+
+      // Adjust text size based on slider value
+      if (slider) {
+          slider.addEventListener('input', function() {
+              content.style.fontSize = `${slider.value}px`;
+          });
+      } else {
+          console.error('Text size slider not found.');
+      }
+  } else {
+      console.error('One or more elements are missing.');
+  }
 });
