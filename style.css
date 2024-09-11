@@ -187,6 +187,7 @@ table td strong {
 
     /* Shrink the content section when menu is expanded */
     .content {
+        height : 100%;
         width: calc(100% - 60px);
         transition: width 0.3s ease;
     }
