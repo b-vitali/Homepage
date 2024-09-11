@@ -25,30 +25,46 @@ function loadSection(sectionId) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  const menu = document.querySelector('.menu');
-  const content = document.querySelector('.content');
-  const slider = document.querySelector('#textSize');
-
-  // Ensure all elements are present
-  if (menu && content) {
+    const menu = document.querySelector('.menu');
+    const content = document.querySelector('.content');
+    const slider = document.querySelector('#textSize');
+  
+    // Function to load the default section based on orientation
+    function loadDefaultSection() {
+      if (window.matchMedia("(orientation: landscape)").matches) {
+        // If in landscape, load the 'education' section
+        loadSection('education');
+      } else {
+        // If in portrait, load the 'bio' section
+        loadSection('bio');
+      }
+    }
+  
+    // Ensure all elements are present
+    if (menu && content) {
       // Add event listener for toggling the menu in portrait mode
       menu.addEventListener('click', function() {
-          menu.classList.toggle('expanded');
-          content.classList.toggle('expanded');
+        menu.classList.toggle('expanded');
+        content.classList.toggle('expanded');
       });
-
-      // Load the initial section (Bio by default)
-      loadSection('bio');
-
+  
+      // Load the default section based on orientation
+      loadDefaultSection();
+  
       // Adjust text size based on slider value
       if (slider) {
-          slider.addEventListener('input', function() {
-              content.style.fontSize = `${slider.value}px`;
-          });
+        slider.addEventListener('input', function() {
+          content.style.fontSize = `${slider.value}px`;
+        });
       } else {
-          console.error('Text size slider not found.');
+        console.error('Text size slider not found.');
       }
-  } else {
+    } else {
       console.error('One or more elements are missing.');
-  }
-});
+    }
+  
+    // Listen for orientation changes to reload the default section if needed
+    window.addEventListener('resize', function() {
+      loadDefaultSection();
+    });
+  });
