@@ -23,3 +23,17 @@ function loadSection(sectionId) {
     })
     .catch(error => console.error('Error loading section:', error));
 }
+document.addEventListener("DOMContentLoaded", function() {
+  const menu = document.querySelector('.menu');
+  const content = document.querySelector('.content');
+
+  // Toggle menu in portrait mode
+  menu.addEventListener('click', function() {
+    // Toggle expanded class for menu and content
+    menu.classList.toggle('expanded');
+    content.classList.toggle('expanded');
+  });
+
+  // Load the initial section (Bio by default)
+  loadSection('bio');
+});
