@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bastiano Vitali - CV</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="menu">
+      <ul>
+        <li><a href="#" onclick="loadSection('bio')">Bio</a></li>
+        <li><a href="#" onclick="loadSection('education')">Education</a></li>
+        <li><a href="#" onclick="loadSection('skills')">Skills</a></li>
+        <li><a href="#" onclick="loadSection('publications')">Publications</a></li>
+        <li><a href="#" onclick="loadSection('conferences')">Conferences</a></li>
+        <li><a href="#" onclick="loadSection('fellowships')">Fellowships</a></li>
+      </ul>
+    </nav>
+
+    <div class="content" id="content">
+      <!-- Content will be loaded here dynamically -->
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+  <script>
+    window.onload = function() {
+      loadSection('bio');
+    };
+  </script>
+</body>
+</html>
