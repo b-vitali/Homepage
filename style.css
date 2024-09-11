@@ -63,7 +63,6 @@ body {
 }
 
 /* Specific styling for skill bars if not already in your CSS */
-
 :root {
     --skill-spacing: 20px; /* Adjust this value as needed */
   }
@@ -90,7 +89,7 @@ body {
     font-weight: bold;
 }
 
-
+/* Tables for the publications and education */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -127,7 +126,7 @@ table td strong {
 }
   
 .bio-right {
-    flex: 1;
+    flex: 0;
 }
   
 .bio-content .badge-base {
