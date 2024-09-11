@@ -138,6 +138,10 @@ table td strong {
 
 /* Landscape mode: Menu at the top */
 @media (orientation: landscape) {
+    .portrait-only {
+        display: none;
+    }
+    
     .container {
         flex-direction: column;
     }
@@ -157,8 +161,14 @@ table td strong {
         height: calc(100vh - 100px); /* Account for the height of the menu */
     }
 }
+
+
 /* Portrait mode: Menu on the left and retractable */
 @media (max-width: 768px), (orientation: portrait) {
+    .portrait-only {
+        display: block;
+    }
+
     .container {
         flex-direction: row;
     }
