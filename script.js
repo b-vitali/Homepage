@@ -63,10 +63,12 @@ document.addEventListener("DOMContentLoaded", function() {
       console.error('One or more elements are missing.');
     }
   
-    // Listen for orientation changes to reload the default section if needed
+    // Listen for orientation changes to reload the default section IF needed
+    /*
     window.addEventListener('resize', function() {
       loadDefaultSection();
     });
+    */
   });
 
 /* MEDIA */
