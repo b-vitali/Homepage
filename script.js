@@ -68,3 +68,48 @@ document.addEventListener("DOMContentLoaded", function() {
       loadDefaultSection();
     });
   });
+
+/* MEDIA */
+  function openModal(element) {
+    const modal = document.getElementById("myModal");
+    const modalContent = document.getElementById("modalContent");
+
+    // Clear previous content
+    modalContent.innerHTML = '';
+
+    // Clone the clicked element
+    const clone = element.cloneNode(true);
+    clone.style.width = '100%'; // Ensure full width
+    clone.style.height = 'auto'; // Maintain aspect ratio
+
+    // If it's a video, ensure it plays when opened
+    const mediaElement = clone.querySelector('video');
+    if (mediaElement) {
+        mediaElement.removeAttribute('muted');
+        mediaElement.setAttribute('controls', 'true');
+        mediaElement.play();
+    }
+
+    // Append the clone to the modal
+    modalContent.appendChild(clone);
+    modal.style.display = "flex";
+}
+
+function closeModal() {
+    const modal = document.getElementById("myModal");
+    modal.style.display = "none";
+
+    // Pause any video that was playing
+    const video = modal.querySelector('video');
+    if (video) {
+        video.pause();
+    }
+}
+
+// Close modal when clicking outside the content
+window.onclick = function(event) {
+    const modal = document.getElementById("myModal");
+    if (event.target === modal) {
+        closeModal();
+    }
+}
